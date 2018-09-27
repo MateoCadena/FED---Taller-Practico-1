@@ -38,6 +38,11 @@ public class Calculator {    //define the data and the conduct of all the type t
         bw.write("7. Module"+ "\n");    //print options of a menu of the calculator
         bw.flush();     // send all the information to the destination 
                 char m1 =br.readLine().charAt(0);   //read the character that receive for the menu
+                if(m1 > 7 || m1 < 0){
+                    bw.write("The option is incorrect");
+                    bw.flush();
+                }
+                else{
                     switch(m1)  //set to the variable the answer for the user
                     {
                     case '1':   //if the user choose 1 this case direct to the option
@@ -81,11 +86,17 @@ public class Calculator {    //define the data and the conduct of all the type t
                     n1 = Integer.parseInt(br.readLine());   //save the answer in the variable with integer
                     bw.write("Digite el divider");  //print one of the numbers that needs for get the result 
                     bw.flush(); // send all the information to the destination
-                    n2 = Integer.parseInt(br.readLine());   //save the answer in the variable with integer
+                    n2 = Integer.parseInt(br.readLine());//save the answer in the variable with integer
+                    if(n2 == 0){
+                        bw.write("It's not possible to divide a number between 0");
+                        bw.flush();
+                    }
+                    else{
                     bw.write("The result is " + (n1 / n2));    //print the result with the operation of the division
                     bw.flush(); // send all the information to the destination
                     break;  //break or stop a process indicate or cycles
-                        
+                    }
+                    
                     case '5':   //if the user choose 5 this case direct to the option
                        
                     bw.write("Enter base");    //print one of the numbers that needs for get the result
@@ -121,6 +132,7 @@ public class Calculator {    //define the data and the conduct of all the type t
                     bw.write("The result is " + (n1 % n2));    //print the result with the operation of the module
                     bw.flush(); // send all the information to the destination
                     break;  //break or stop a process indicate or cycles
-                    }                   
+                    }    
+                }
     }           
 }
